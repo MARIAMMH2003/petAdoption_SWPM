@@ -12,6 +12,7 @@ import RegisterShelter from './pages/RegisterShelter';
 import NotFound from './pages/NotFound';
 import './App.css';
 
+
 // Wrapper to decide which component to render based on authentication
 const AuthRoute = ({ element: Element, requiresAuth }) => {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
@@ -53,6 +54,9 @@ function AppContent() {
       
       <div className="container">
         <Routes>
+        <Route path="/" element={<Landing />} />
+      <Route path="/available-pets" element={<AvailablePets />} />
+      <Route path="/register-shelter" element={<RegisterShelter />} />
           <Route path="/" element={<AuthRoute element={<Landing />} requiresAuth={false} />} />
           <Route 
             path="/login" 

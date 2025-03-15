@@ -12,8 +12,12 @@ import chat from '../media/LandingPage/chat.png';
 import donation from '../media/LandingPage/donation.png';
 // Import the paw image
 import pawImage from '../media/LandingPage/paw1.png';
+import { useNavigate } from 'react-router-dom'; // Added import
 
 const Landing = () => {
+ 
+  const navigate = useNavigate(); // Initialize navigation hook
+
   // State for paw animation management
   const [pawsArray, setPawsArray] = useState([]);
   const [shouldAnimate, setShouldAnimate] = useState(true);
@@ -394,6 +398,7 @@ const Landing = () => {
           },
           tap: { scale: 0.97 }
         }}
+        onClick={() => navigate('/available-pets')} // Added navigation
       >
         <motion.span 
           className="button-text"
@@ -421,7 +426,7 @@ const Landing = () => {
           }}
         />
       </motion.button>
-      
+
       <motion.button
         className="cta-button secondary"
         whileHover="hover"
@@ -432,6 +437,7 @@ const Landing = () => {
           },
           tap: { scale: 0.97 }
         }}
+        onClick={() => navigate('/register-shelter')} // Optional: Add shelter registration route
       >
         <motion.span 
           className="button-text"
